@@ -8,6 +8,7 @@ import CatNew from './pages/CatNew'
 import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
 import mockCats from './mockCats.js'
+import './App.css'
 
 
 import {
