@@ -20,3 +20,20 @@ body{
   padding: 10px 0px 10px 0px;
 
 }
+
+#footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #5680E9;
+  color: white;
+  text-align: center;
+}
+
+/* #notfound-cat-image{
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+} */
