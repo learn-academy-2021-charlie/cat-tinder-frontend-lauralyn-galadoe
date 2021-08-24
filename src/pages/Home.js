@@ -5,6 +5,7 @@ class Home extends Component {
     return (
       <>
         <h3>I am the Home page!</h3>
+        <p>Almost before we knew it, we had left the ground.</p>
       </>
     )
   }
