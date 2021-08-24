@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, CardText, Col } from 'reactstrap'
-import { Redirect } from 'react-router-dom'
+import { Container, Row, Col, Card, CardTitle, CardText } from 'reactstrap'
 
 class CatShow extends Component {
   render() {
       const {cat} = this.props
       return(
         <>
-          <Col sm="6">
-            <Card body>
-            {cat && <>
-            <CardTitle>Meet {cat.name}</CardTitle><CardText>Age: {cat.age}</CardText><CardText>Enjoys: {cat.enjoys}</CardText>
-            </>}
-            </Card>
-          </Col>
+        <Container>
+          <Row>
+            <Col sm="6">
+              <Card body>
+              {cat && <>
+              <CardTitle>Meet {cat.name}</CardTitle><CardText>Age: {cat.age}</CardText><CardText>Enjoys: {cat.enjoys}</CardText>
+              </>}
+              </Card>
+            </Col>
+          </Row>
+        </Container>
         </>
       )
   }

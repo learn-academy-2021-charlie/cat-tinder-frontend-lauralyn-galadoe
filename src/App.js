@@ -11,8 +11,7 @@ import mockCats from './mockCats.js'
 import './App.css'
 import {
   BrowserRouter as Router,
-  Route,
-  Switch
+  Route, Switch
 } from 'react-router-dom'
 
 class App extends Component {
