@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
 
-body{
+#root {
   background-color: #84CEEB;
+  font-family: 'Klee One', cursive;
+  height: 100vh;
 }
 
 #notfound-h3 {

@@ -9,8 +9,6 @@ import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
 import mockCats from './mockCats.js'
 import './App.css'
-
-
 import {
   BrowserRouter as Router,
   Route,
@@ -26,10 +24,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.cats);
+    // console.log(this.state.cats);
     return (
       <>
-      <div class ="body">
         <Router>
           <Header />
           <Switch>
@@ -42,7 +39,6 @@ class App extends Component {
           </Switch>
           <Footer />
         </Router>
-      </div>
       </>
     )
   }
