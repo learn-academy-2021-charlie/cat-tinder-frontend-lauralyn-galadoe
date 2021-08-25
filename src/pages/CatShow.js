@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Card, CardTitle, CardText } from 'reactstrap'
+import { Container, Row, Col, Card, CardTitle, CardText, Button} from 'reactstrap'
+import {NavLink} from 'react-router-dom'
+
 
 class CatShow extends Component {
+
   render() {
       const {cat} = this.props
       return(
@@ -16,6 +19,9 @@ class CatShow extends Component {
               </Card>
             </Col>
           </Row>
+          <Button>
+            <NavLink to={`/catedit/${cat.id}`}>Edit Cat</NavLink>
+          </Button>
         </Container>
         </>
       )
