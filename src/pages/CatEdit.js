@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class CatEdit extends Component {
@@ -8,8 +9,10 @@ class CatEdit extends Component {
       form: {
         name: "",
         age: "",
-        enjoys: ""
-      }
+        enjoys: "",
+        id: ""
+      },
+      submitted: false
     }
   }
 
@@ -19,24 +22,24 @@ class CatEdit extends Component {
     for (const property in cat) {
       form[property] = cat[property];
     }
-    console.log(form)
     this.setState({form: form})
   }
 
-  handleChange(e){
-    // let {form} = this.state
-    // form[e.target.name] = e.target.value
-    // this.setState({form : form})
+  handleChange = (e) => {
+    let {form} = this.state
+    form[e.target.name] = e.target.value
+    this.setState({form : form})
   }
 
-  handleSubmit(e){
+  handleSubmit = (e) => {
     this.props.updateCat(this.state.form)
+    this.setState({submitted: true})
   }
 
   render() {
     return (
       <>
-        <h3>I am the CatEdit Page!</h3>
+        <h3>Edit {this.props.cat.name}'s information</h3>
         <Form>
           <FormGroup>
             <Label for="name">Name</Label>
@@ -44,7 +47,7 @@ class CatEdit extends Component {
               type="text"
               name="name"
               onChange={this.handleChange}
-              value={this.props.cat.name}
+              value={this.state.form.name}
             />
           </FormGroup>
           <FormGroup>
@@ -53,7 +56,7 @@ class CatEdit extends Component {
               type="text"
               name="age"
               onChange={this.handleChange}
-              value={this.props.cat.age}
+              value={this.state.form.age}
             />
           </FormGroup>
           <FormGroup>
@@ -62,14 +65,14 @@ class CatEdit extends Component {
               type="text"
               name="enjoys"
               onChange={this.handleChange}
-              value={this.props.cat.enjoys}
+              value={this.state.form.enjoys}
             />
           </FormGroup>
           <Button name="submit" onClick={this.handleSubmit}>
           Edit Cat information
           </Button>
         </Form>
-
+        { this.state.submitted && <Redirect to={`/catshow/${this.state.form.id}`} />}
       </>
     )
   }
