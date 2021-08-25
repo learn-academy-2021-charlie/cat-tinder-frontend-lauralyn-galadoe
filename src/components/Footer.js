@@ -8,7 +8,6 @@ class Footer extends Component {
         <div className="header-footer" id="footer">
           <h3 id="footer-style">I am the Footer!</h3>
           <NavLink to="/">Go Home</NavLink> 
-          <NavLink to="/catindex">Check out the cats!</NavLink>
         </div>
       </>
     )

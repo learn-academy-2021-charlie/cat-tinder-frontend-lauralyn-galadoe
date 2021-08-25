@@ -23,6 +23,9 @@ class CatIndex extends Component {
               })}
             </Col>
           </Row>
+          <Row>
+            <NavLink to="/catnew">Add a Cat</NavLink>
+          </Row>
         </Container>
       </>
     )
