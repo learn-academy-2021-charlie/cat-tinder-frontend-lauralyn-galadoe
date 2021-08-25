@@ -11,8 +11,7 @@ import mockCats from './mockCats.js'
 import './App.css'
 import {
   BrowserRouter as Router,
-  Route,
-  Switch
+  Route, Switch
 } from 'react-router-dom'
 
 class App extends Component {
@@ -21,6 +20,10 @@ class App extends Component {
     this.state = {
       cats: mockCats
     }
+  }
+
+  createCat = (newCat) => {
+    console.log(newCat)
   }
 
   render() {
@@ -36,7 +39,7 @@ class App extends Component {
               let cat = this.state.cats.find(cat => cat.id === +id)
               return <CatShow cat={cat} />
             }}/>
-            <Route path="/catnew" component={ CatNew } />
+            <Route path="/catnew" render={ (props) => <CatNew createCat={this.createCat} /> } />
             <Route path="/catedit/:id" component={ CatEdit } />
             <Route component={ NotFound }/>
           </Switch>
