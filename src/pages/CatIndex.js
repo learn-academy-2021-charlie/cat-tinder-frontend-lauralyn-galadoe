@@ -14,7 +14,7 @@ class CatIndex extends Component {
                 return (
                   <Card body key={cat.id}>
                     <CardTitle>
-                      <NavLink to={`/catshow/${cat.id}`}>
+                      <NavLink to={`/catshow/${cat.id}`} id="catName-nav">
                         <h4>{cat.name}</h4>
                       </NavLink>
                     </CardTitle>
@@ -24,7 +24,7 @@ class CatIndex extends Component {
             </Col>
           </Row>
           <Row>
-            <NavLink to="/catnew">Add a Cat</NavLink>
+            <NavLink to="/catnew" id="add-cat">Add a Cat</NavLink>
           </Row>
         </Container>
       </>

@@ -9,7 +9,7 @@ class CatShow extends Component {
       const {cat} = this.props
       return(
         <>
-        <Container>
+        <Container id="catshow">
           <Row>
             <Col sm="6">
               <Card body>
@@ -19,8 +19,8 @@ class CatShow extends Component {
               </Card>
             </Col>
           </Row>
-          <Button>
-            <NavLink to={`/catedit/${cat.id}`}>Edit Cat</NavLink>
+          <Button className="button-style">
+            <NavLink to={`/catedit/${cat.id}`} id="edit-nav">Edit Cat</NavLink>
           </Button>
         </Container>
         </>
