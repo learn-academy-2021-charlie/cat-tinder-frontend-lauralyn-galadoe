@@ -40,3 +40,38 @@
   top: 50%;
   left: 50%;
 } */
+
+.nav-styling{
+  text-decoration: none;
+  font-size: 3vh;
+  color: #8860D0;
+}
+
+/* .nav-styling:hover{
+  color: white;
+} */
+
+#catName-nav{
+  text-decoration: none;
+  color: #84ceeb;
+}
+#catName-nav:hover{
+  color: grey;
+}
+
+#add-cat{
+  text-decoration: none;
+}
+
+#edit-nav{
+  text-decoration: none;
+  color: white;
+}
+
+/* tried styling the buttons but it didnt want to work! */
+/* .button-style{
+  /* background-color: #c1c8e4; */
+
+#catshow{
+  margin-top: 50px;
+}

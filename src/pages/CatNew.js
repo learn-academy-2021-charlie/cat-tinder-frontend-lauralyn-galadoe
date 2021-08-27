@@ -34,7 +34,7 @@ class CatNew extends Component {
           <FormGroup>
             <Label for="name">Name</Label>
             <Input
-              type="text" 
+              type="text"
               name="name"
               onChange={this.handleChange}
               value={this.state.form.name}
@@ -43,7 +43,7 @@ class CatNew extends Component {
           <FormGroup>
             <Label for="age">Age</Label>
             <Input
-              type="text" 
+              type="text"
               name="age"
               onChange={this.handleChange}
               value={this.state.form.age}
@@ -52,13 +52,13 @@ class CatNew extends Component {
           <FormGroup>
             <Label for="enjoys">Enjoys</Label>
             <Input
-              type="text" 
-              name="enjoys" 
+              type="text"
+              name="enjoys"
               onChange={this.handleChange}
               value={this.state.form.enjoys}
             />
           </FormGroup>
-          <Button name="submit" onClick={this.handleSubmit}>
+          <Button name="submit" onClick={this.handleSubmit} className="button-style">
             Add a new cat
           </Button>
         </Form>

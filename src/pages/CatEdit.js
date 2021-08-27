@@ -68,7 +68,7 @@ class CatEdit extends Component {
               value={this.state.form.enjoys}
             />
           </FormGroup>
-          <Button name="submit" onClick={this.handleSubmit}>
+          <Button name="submit" onClick={this.handleSubmit} className = "button-style">
           Edit Cat information
           </Button>
         </Form>
