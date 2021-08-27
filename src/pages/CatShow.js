@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card, CardTitle, CardText, Button} from 'reactstrap'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Redirect} from 'react-router-dom'
 
 
 class CatShow extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      submitted: false
+    }
+  }
 
+  handleSubmit = (e) => {
+    const {cat} = this.props
+    this.props.deleteCat(cat.id)
+    this.setState({submitted: true})
+  }
   render() {
       const {cat} = this.props
       return(
@@ -22,6 +33,10 @@ class CatShow extends Component {
           <Button className="button-style">
             <NavLink to={`/catedit/${cat.id}`} id="edit-nav">Edit Cat</NavLink>
           </Button>
+          <Button className="button-style" onClick={this.handleSubmit}>
+            Delete Cat
+          </Button>
+          { this.state.submitted && <Redirect to={`/catindex/`} />}
         </Container>
         </>
       )
