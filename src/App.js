@@ -33,39 +33,37 @@ class App extends Component {
   }
 
   createCat = (newCat) => {
-    fetch("http://localhost:3000/cats", {
-      body: JSON.stringify(newCat),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "POST"
-    })
-    .then(response => {
-      if (response.status === 422) {
+    if(newCat.enjoys.length < 10){
         alert("Please check your submission. Enjoy has to be 10 characters minimum.")
-      }
-      return response.json()
-    })
-    .then(payload => this.readCat())
-    .catch(errors => console.log("Cat create errors: ", errors))
+    }else{
+      fetch("http://localhost:3000/cats", {
+        body: JSON.stringify(newCat),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      })
+      .then(response => response.json())
+      .then(payload => this.readCat())
+      .catch(errors => console.log("Cat create errors: ", errors))
+    }
   }
 
   updateCat = (cat) => {
-    fetch(`http://localhost:3000/cats/${cat.id}`, {
-      body: JSON.stringify(cat),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "PATCH"
-    })
-    .then(response => {
-      if (response.status === 422) {
+    if(cat.enjoys.length < 10){
         alert("Please check your submission. Enjoy has to be 10 characters minimum.")
-      }
-      return response.json()
-    })
-    .then(payload => this.readCat())
-    .catch(errors => console.log("Cat update errors: ", errors))
+    }else{
+      fetch(`http://localhost:3000/cats/${cat.id}`, {
+        body: JSON.stringify(cat),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "PATCH"
+      })
+      .then(response => response.json())
+      .then(payload => this.readCat())
+      .catch(errors => console.log("Cat update error: ", errors))
+    }
   }
 
   deleteCat = (id) => {
@@ -75,14 +73,9 @@ class App extends Component {
       },
       method: "DELETE"
     })
-    .then(response => {
-      if (response.status === 422) {
-        alert("Please check your submission. Enjoy has to be 10 characters minimum.")
-      }
-      return response.json()
-    })
+    .then(response => response.json())
     .then(payload => this.readCat())
-    .catch(errors => console.log("Cat update errors: ", errors))
+    .catch(errors => console.log("Cat delete errors: ", errors))
   }
 
   render() {
