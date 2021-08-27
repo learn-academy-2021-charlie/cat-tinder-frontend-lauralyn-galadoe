@@ -42,7 +42,7 @@ class App extends Component {
     })
     .then(response => {
       if (response.status === 422) {
-        alert("Please check your submission.")
+        alert("Please check your submission. Enjoy has to be 10 characters minimum.")
       }
       return response.json()
     })
@@ -51,7 +51,21 @@ class App extends Component {
   }
 
   updateCat = (cat) => {
-    console.log(cat);
+    fetch(`http://localhost:3000/cats/${cat.id}`, {
+      body: JSON.stringify(cat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if (response.status === 422) {
+        alert("Please check your submission. Enjoy has to be 10 characters minimum.")
+      }
+      return response.json()
+    })
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat update errors: ", errors))
   }
 
   render() {
