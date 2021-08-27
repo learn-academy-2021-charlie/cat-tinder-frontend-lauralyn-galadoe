@@ -69,7 +69,7 @@ class CatEdit extends Component {
             />
           </FormGroup>
           <Button name="submit" onClick={this.handleSubmit} className = "button-style">
-          Edit Cat information
+          Update Cat
           </Button>
         </Form>
         { this.state.submitted && <Redirect to={`/catshow/${this.state.form.id}`} />}
