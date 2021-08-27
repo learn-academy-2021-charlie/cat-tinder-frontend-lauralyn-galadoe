@@ -6,8 +6,8 @@ class Footer extends Component {
     return (
       <>
         <div className="header-footer" id="footer">
-          <h3 id="footer-style">I am the Footer!</h3>
           <NavLink to="/" className="nav-styling">Go Home</NavLink> 
+          <p>&#169; Galadoe and Lauralyn</p>
         </div>
       </>
     )

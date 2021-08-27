@@ -20,7 +20,7 @@ class CatShow extends Component {
       const {cat} = this.props
       return(
         <>
-        <Container id="catshow">
+        <Container className="margin">
           <Row>
             <Col sm="6">
               <Card body>
