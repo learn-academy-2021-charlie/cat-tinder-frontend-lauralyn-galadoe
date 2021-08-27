@@ -7,7 +7,6 @@ import CatIndex from './pages/CatIndex'
 import CatNew from './pages/CatNew'
 import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
-import mockCats from './mockCats.js'
 import './App.css'
 import {
   BrowserRouter as Router,
@@ -18,12 +17,37 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      cats: mockCats
+      cats: []
     }
   }
 
+  componentDidMount() {
+    this.readCat()
+  }
+
+  readCat = () => {
+    fetch("http://localhost:3000/cats")
+      .then(response => response.json())
+      .then(catsArray => this.setState({ cats: catsArray }))
+      .catch(errors => console.log("Cat read errors: ", errors))
+  }
+
   createCat = (newCat) => {
-    console.log(newCat)
+    fetch("http://localhost:3000/cats", {
+      body: JSON.stringify(newCat),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if (response.status === 422) {
+        alert("Please check your submission.")
+      }
+      return response.json()
+    })
+    .then(payload => this.readCat())
+    .catch(errors => console.log("Cat create errors: ", errors))
   }
 
   updateCat = (cat) => {
