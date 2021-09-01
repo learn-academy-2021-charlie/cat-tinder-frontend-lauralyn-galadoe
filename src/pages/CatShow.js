@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Container, Row, Col, Card, CardTitle, CardText, Button} from 'reactstrap'
+import { Container, Row, Col, Card, CardTitle, CardBody, CardText, Button} from 'reactstrap'
 import {NavLink, Redirect} from 'react-router-dom'
-
 
 class CatShow extends Component {
   constructor(props){
@@ -20,14 +19,20 @@ class CatShow extends Component {
       const {cat} = this.props
       return(
         <>
-        <Container id="catshow">
+        <Container className="margin">
           <Row>
             <Col sm="6">
-              <Card body>
-              {cat && <>
-              <CardTitle>Meet {cat.name}</CardTitle><CardText>Age: {cat.age}</CardText><CardText>Enjoys: {cat.enjoys}</CardText>
+
+              <Card>
+              {cat && 
+              <>
+                <CardBody>
+                  <CardTitle>{cat.name}, {cat.age}</CardTitle>
+                  <CardText>Enjoys: {cat.enjoys}</CardText>
+                </CardBody>
               </>}
               </Card>
+
             </Col>
           </Row>
           <Button className="button-style">

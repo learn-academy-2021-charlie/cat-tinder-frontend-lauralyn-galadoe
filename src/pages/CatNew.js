@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class CatNew extends Component {
   constructor(props) {
@@ -29,41 +29,46 @@ class CatNew extends Component {
   render() {
     return (
       <>
-        <h3>Add a cat</h3>
-        <Form>
-          <FormGroup>
-            <Label for="name">Name</Label>
-            <Input
-              type="text"
-              name="name"
-              onChange={this.handleChange}
-              value={this.state.form.name}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="age">Age</Label>
-            <Input
-              type="text"
-              name="age"
-              onChange={this.handleChange}
-              value={this.state.form.age}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="enjoys">Enjoys</Label>
-            <Input
-              type="text"
-              name="enjoys"
-              onChange={this.handleChange}
-              value={this.state.form.enjoys}
-            />
-          </FormGroup>
-          <Button name="submit" onClick={this.handleSubmit} className="button-style">
-            Add a new cat
-          </Button>
-        </Form>
-
-        {this.state.submitted && <Redirect to="/catindex" />}
+        <Container className="margin">
+          <Row>
+            <Col sm="6">
+              <h3>Add a cat</h3>
+              <Form>
+                <FormGroup>
+                  <Label for="name">Name</Label>
+                  <Input
+                    type="text"
+                    name="name"
+                    onChange={this.handleChange}
+                    value={this.state.form.name}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="age">Age</Label>
+                  <Input
+                    type="text"
+                    name="age"
+                    onChange={this.handleChange}
+                    value={this.state.form.age}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="enjoys">Enjoys</Label>
+                  <Input
+                    type="text"
+                    name="enjoys"
+                    onChange={this.handleChange}
+                    value={this.state.form.enjoys}
+                  />
+                </FormGroup>
+                <Button name="submit" onClick={this.handleSubmit} className="button-style">
+                  Add a new cat
+                </Button>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+              {this.state.submitted && <Redirect to="/catindex" />}
       </>
     )
   }
